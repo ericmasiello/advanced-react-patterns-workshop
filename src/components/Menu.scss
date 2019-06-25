@@ -1,0 +1,36 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 3.75rem;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1rem;
+  background: #fff;
+  transform: translateX(0);
+  transition: transform 0.4s ease 0s, box-shadow 0.4s ease 0s;
+  padding: 1rem;
+}
+
+.menu[aria-hidden='true'] {
+  transform: translateX(-100%);
+  box-shadow: rgba(0, 0, 0, 0) 1px 1px 1rem;
+}
+
+@media (min-width: 600px) {
+  .menu {
+    position: static;
+    transition: none;
+  }
+
+  /* double specificity hack */
+  .menu.menu {
+    box-shadow: none;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-toggle {
+    display: none;
+  }
+}

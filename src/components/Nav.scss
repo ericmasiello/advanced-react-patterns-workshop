@@ -1,0 +1,22 @@
+.nav-list {
+  list-style-type: none;
+  font-size: 1.75rem;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
+}
+
+.nav-item {
+  margin-bottom: 1rem;
+
+  @media (min-width: 600px) {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

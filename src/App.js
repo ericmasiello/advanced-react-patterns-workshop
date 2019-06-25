@@ -1,43 +1,39 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './App.scss';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './components/Header'
+import { MenuProvider } from './components/Menu'
+import './App.scss'
 
 function Index() {
-  return <h2>Home</h2>;
+  return <h2>Home</h2>
 }
 
 function About() {
-  return <h2>About</h2>;
+  return <h2>About</h2>
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function Contact() {
+  return <h2>Contact</h2>
+}
+
+function Featured() {
+  return <h2>Featured</h2>
 }
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-            <li>
-              <Link to="/users/">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Route path="/" exact component={Index} />
-        <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} />
-      </div>
-    </Router>
-  );
+    <MenuProvider>
+      <Router>
+        <div className="app">
+          <Header />
+          <Route path="/" exact component={Index} />
+          <Route path="/about/" component={About} />
+          <Route path="/contact/" component={Contact} />
+          <Route path="/featured/" component={Featured} />
+        </div>
+      </Router>
+    </MenuProvider>
+  )
 }
 
-export default App;
+export default App
